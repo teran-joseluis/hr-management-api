@@ -71,15 +71,15 @@ jobs:
           checkAllCommitMessages: 'true'
           accessToken: ${{ secrets.GITHUB_TOKEN }}
 
-    check_branches_convention:
-      name: Conventional Branches Name
-      runs-on: ubuntu-latest
+  check_branches_convention:
+    name: Conventional Branches Name
+    runs-on: ubuntu-latest
 
-      steps:
-        - uses: deepakputhraya/action-branch-name@master
-          with:
-            regex: '([a-z]+)/([a-z]+)'
-            allowed_prefixes: 'stable,fix,chore,docs,feat,build,ci,refactor,perf,hotfix'
-            ignore: main,release,develop,feature,test
-            min_length: 4
-            max_length: 100
+    steps:
+      - uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '([a-z]+)/([a-z]+)'
+          allowed_prefixes: 'stable,fix,chore,docs,feat,build,ci,refactor,perf,hotfix'
+          ignore: main,release,develop,feature,test
+          min_length: 4
+          max_length: 100
