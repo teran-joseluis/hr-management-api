@@ -1,5 +1,6 @@
 package teran.towers.hr.management.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -32,4 +34,8 @@ public class Project {
   @Column(name = "end_date")
   @Temporal(TemporalType.DATE)
   private Date endDate;
+
+  @ManyToMany(mappedBy = "projects")
+  @JsonIgnore()
+  private Set<Employee> employees;
 }

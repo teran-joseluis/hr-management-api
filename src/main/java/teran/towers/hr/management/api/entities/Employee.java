@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -53,4 +54,10 @@ public class Employee {
   @ManyToOne()
   @JoinColumn(name = "position_id")
   private Position position;
+
+  @ManyToMany()
+  @JoinTable(name = "employee_project",
+          joinColumns = @JoinColumn(name = "employee_id"),
+          inverseJoinColumns = @JoinColumn(name = "project_id"))
+  private Set<Project> projects;
 }
