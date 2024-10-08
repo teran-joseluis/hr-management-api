@@ -1,5 +1,6 @@
 package teran.towers.hr.management.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -35,4 +37,12 @@ public class Position {
   @Column(name = "record_update_date")
   @Temporal(TemporalType.DATE)
   private Date recordUpdateDate;
+
+  @OneToMany(mappedBy = "position")
+  @JsonIgnore()
+  private List<Employee> employees;
+
+  @ManyToOne()
+  @JoinColumn(name = "department_id")
+  private Department department;
 }

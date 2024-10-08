@@ -32,4 +32,12 @@ public class Contract {
   @Column(name = "record_update_date")
   @Temporal(TemporalType.DATE)
   private Date recordUpdateDate;
+
+  @ManyToOne()
+  @JoinColumn(name = "employee_id")
+  private Employee employee;
+
+  @ManyToOne()
+  @JoinColumn(name = "user_id")
+  private User user;
 }

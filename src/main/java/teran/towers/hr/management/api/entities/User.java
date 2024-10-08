@@ -1,11 +1,13 @@
 package teran.towers.hr.management.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -31,4 +33,8 @@ public class User {
 
   @Column(name = "password")
   private String password;
+
+  @OneToMany(mappedBy = "user")
+  @JsonIgnore()
+  private List<Contract> contracts;
 }
