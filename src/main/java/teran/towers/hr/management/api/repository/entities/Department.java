@@ -1,4 +1,4 @@
-package teran.towers.hr.management.api.entities;
+package teran.towers.hr.management.api.repository.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -15,26 +15,20 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "department")
+public class Department {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  @Column(name = "user_id")
-  private UUID userId;
+  @Column(name = "department_id")
+  private UUID departmentId;
 
   @Column(name = "name")
   private String name;
 
-  @Column(name = "last_name")
-  private String lastName;
+  @Column(name = "description")
+  private String description;
 
-  @Column(name = "email")
-  private String email;
-
-  @Column(name = "password")
-  private String password;
-
-  @OneToMany(mappedBy = "user")
+  @OneToMany(mappedBy = "department")
   @JsonIgnore()
-  private List<Contract> contracts;
+  private List<Position> positions;
 }

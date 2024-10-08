@@ -1,4 +1,4 @@
-package teran.towers.hr.management.api.entities;
+package teran.towers.hr.management.api.repository.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
