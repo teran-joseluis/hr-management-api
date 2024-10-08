@@ -1,9 +1,6 @@
 package teran.towers.hr.management.api.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +17,7 @@ public class Contract {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   @Column(name = "contract_id")
-  private UUID id;
+  private UUID contractId;
 
   @Column(name = "start_date")
   private Date startDate;
@@ -28,5 +25,11 @@ public class Contract {
   @Column(name = "end_date")
   private Date endDate;
 
-  // TODO: Complete 4 more attributes
+  @Column(name = "record_creation_date")
+  @Temporal(TemporalType.DATE)
+  private Date recordCreationDate;
+
+  @Column(name = "record_update_date")
+  @Temporal(TemporalType.DATE)
+  private Date recordUpdateDate;
 }

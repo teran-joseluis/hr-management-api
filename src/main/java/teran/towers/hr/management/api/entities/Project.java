@@ -17,7 +17,7 @@ public class Project {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   @Column(name = "project_id")
-  private UUID id;
+  private UUID projectId;
 
   @Column(name = "title")
   private String title;

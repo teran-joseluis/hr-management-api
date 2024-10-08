@@ -19,7 +19,7 @@ public class Employee {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   @Column(name = "employee_id")
-  private UUID id;
+  private UUID employeeId;
 
   @Column(name = "name")
   private String name;
@@ -33,8 +33,14 @@ public class Employee {
   @Column(name = "email")
   private String email;
 
-  @Column(name = "phone")
-  private String phone;
+  @Column(name = "phone_number")
+  private String phoneNumber;
 
-  // TODO: Complete 3 more attributes
+  @Column(name = "record_creation_date")
+  @Temporal(TemporalType.DATE)
+  private Date recordCreationDate;
+
+  @Column(name = "record_update_date")
+  @Temporal(TemporalType.DATE)
+  private Date recordUpdateDate;
 }

@@ -1,14 +1,12 @@
 package teran.towers.hr.management.api.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Getter
@@ -19,7 +17,7 @@ public class Position {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   @Column(name = "position_id")
-  private UUID id;
+  private UUID positionId;
 
   @Column(name = "name")
   private String name;
@@ -30,5 +28,11 @@ public class Position {
   @Column(name = "base_salary")
   private Double baseSalary;
 
-  // TODO: Complete 2 Missing Attributes
+  @Column(name = "record_creation_date")
+  @Temporal(TemporalType.DATE)
+  private Date recordCreationDate;
+
+  @Column(name = "record_update_date")
+  @Temporal(TemporalType.DATE)
+  private Date recordUpdateDate;
 }
